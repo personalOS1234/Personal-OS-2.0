@@ -29,7 +29,7 @@ if __name__ == '__main__':
         coreObject.addThread(mainMenu.mainMenu(menuChoice))
         menuChoice, menuSize = menuChoice.get()
         menuChoice = int(menuChoice)
-        if menuChoice == menuSize:      # exit
+        if menuChoice == menuSize:      #   exit
             exitSignal = False
             clearScreen()
             printOSinfo()
