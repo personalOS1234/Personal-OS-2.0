@@ -1,5 +1,5 @@
 import queue , threading
-
+from commonFunctions import *
 
 class Menu():
     def __init__(self):
@@ -18,7 +18,10 @@ class Menu():
         for i in self.mainMenuData:
             print(self.iter, i)
             self.iter += 1
-        choice = input('\n--------------------------------\nInput your choice: ')
+        input_success = False
+        while not input_success:
+            choice = input('\n--------------------------------\nInput your choice: ')
+            input_success = check_input_no_enter_button(choice)
         returnObject.put([choice, len(self.mainMenuData)])
         return
 
@@ -28,7 +31,10 @@ class Menu():
         for i in self.aboutMenuData:
             print(self.iter, i)
             self.iter += 1
-        choice = input('\n--------------------------------\nInput your choice: ')
+        input_success = False
+        while not input_success:
+            choice = input('\n--------------------------------\nInput your choice: ')
+            input_success = check_input_no_enter_button(choice)
         returnObject.put([choice, len(self.aboutMenuData)])
 
     def organiserMenu(self, returnObject):
@@ -37,9 +43,11 @@ class Menu():
         for i in self.organiserMenuData:
             print(self.iter, i)
             self.iter += 1
-        choice = input('\n--------------------------------\nInput your choice: ')
-        choice = int(choice)
-        returnObject.put([choice, len(self.organiserMenuData)])
+        input_success = False
+        while not input_success:
+            choice = input('\n--------------------------------\nInput your choice: ')
+            input_success = check_input_no_enter_button(choice)
+        returnObject.put([int(choice), len(self.organiserMenuData)])
 
     def notesMenu(self, returnObject):
         self.notesMenuData = ['Notes', 'Add note', 'Exit']
@@ -47,5 +55,8 @@ class Menu():
         for i in self.notesMenuData:
             print(self.iter, i)
             self.iter += 1
-        choice = input('\n--------------------------------\nInput your choice: ')
+        input_success = False
+        while not input_success:
+            choice = input('\n--------------------------------\nInput your choice: ')
+            input_success = check_input_no_enter_button(choice)
         returnObject.put([int(choice), len(self.notesMenuData)])

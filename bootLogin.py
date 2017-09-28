@@ -5,7 +5,7 @@ class Authentication:
     def __init__(self):
         self.login = ''
         self.password = ''
-        clearScreen()
+        clear_screen()
 
     def login(self, returnObject):
         printOSinfo()

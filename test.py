@@ -1,13 +1,3 @@
-import speech_recognition as sr
+from commonFunctions import *
 
-r = sr.Recognizer()
-
-with sr.Microphone() as source:
-    print('time')
-    audio = r.listen(source)
-
-try:
-    print(r.recognize_google(audio))
-
-except Exception as e:
-    print(e)
+print(check_input_no_enter_button(input()))
